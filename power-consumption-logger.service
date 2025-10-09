@@ -2,7 +2,7 @@
 Description=Python utility script for continuously logging the results from perf stat and ipmitool sensor for monitoring power consumption
 
 [Service]
-WorkingDirectory=/local/repository/ecko/power-consumption-logger/
+WorkingDirectory=/local/repository/power-consumption-logger/
 ExecStart=/usr/bin/env/python3 power-consumption-logger.py
 
 [Install]
