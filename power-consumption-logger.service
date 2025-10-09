@@ -3,7 +3,9 @@ Description=Python utility script for continuously logging the results from perf
 
 [Service]
 WorkingDirectory=/local/repository/power-consumption-logger/
-ExecStart=/usr/bin/env/python3 power-consumption-logger.py
+ExecStart=/usr/bin/env python3 power-consumption-logger.py
+Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
