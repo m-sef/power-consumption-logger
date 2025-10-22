@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import socket
 import logging
 from logging import Logger
 import asyncio
@@ -55,14 +56,15 @@ async def log_perfsensor(logger : Logger) -> None:
 
 async def async_main() -> None:
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    hostname = socket.gethostname()
 
     ipmisensor_logger = init_logger(
             "ipmisensor",
-            f"ipmi{timestamp}.log")
+            f"{hostname}-ipmi-{timestamp}.log")
 
     perfsensor_logger = init_logger(
             "perfsensor",
-            f"perf{timestamp}.log")
+            f"{hostname}-perf-{timestamp}.log")
 
     await asyncio.gather(
             log_ipmisensor(ipmisensor_logger),
