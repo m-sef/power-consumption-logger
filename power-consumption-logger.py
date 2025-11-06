@@ -56,7 +56,7 @@ async def log_perfsensor(logger : Logger) -> None:
 
 async def async_main() -> None:
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    hostname = socket.gethostname()
+    hostname = socket.gethostname().split('.')[0]
 
     ipmisensor_logger = init_logger(
             "ipmisensor",
